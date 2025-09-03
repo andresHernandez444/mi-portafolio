@@ -1,0 +1,792 @@
+/* R EGLAS GENERALES Y RESTABLECIMIENTO */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0c0c0c;
+    background-image: url('fondo2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* ¡Cambiamos esto! */
+    color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ESTILOS DEL ENCABEZADO Y NAVEGACIÓN */
+/* ESTILOS DE LA CABECERA Y NAVEGACIÓN FIJA */
+header {
+    background-color: #0c0c0c;
+    color: #f0f0f0;
+    padding: 20px 50px; /* Ajustamos el padding horizontal */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Propiedades para hacer la barra sticky */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Estilos de los títulos dentro de la cabecera */
+.header-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos del menú de navegación */
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #28a745;
+}
+
+/* ESTILOS PARA LA SECCIÓN PRINCIPAL */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero-section img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #28a745;
+}
+
+.hero-section div {
+    text-align: left;
+}
+
+/* ESTILOS PARA "ACERCA DE MÍ" */
+.about-me-section {
+    padding: 60px 20px;
+    background-color: #1a1a1a;
+}
+
+.about-me-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #f0f0f0;
+    margin-bottom: 40px;
+}
+
+.about-me-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-me-content img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #28a745;
+}
+
+.about-me-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #d0d0d0;
+    margin-bottom: 20px;
+    
+}
+
+/* ESTILOS PARA LA SECCIÓN DE EXPERIENCIA */
+.experience-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+    scroll-margin-top: 100px;
+}
+
+.experience-section h2 {
+    font-size: 2.2rem;
+    color: #f0f0f0;
+    margin-bottom: 18px;
+}
+
+.experience-section h3 {
+    font-size: 1.4rem;
+    color: #f0f0f0;
+    margin-bottom: 40px;
+}
+
+/* Contenedor de la lista de experiencias */
+/* Contenedor de la lista de experiencias */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 10px; /* margen lateral para que no quede pegado */
+    background-color: transparent; /* sin fondo */
+    box-shadow: none; /* sin sombra */
+}
+
+/* Estilos para cada item de experiencia */
+.experience-item {
+    background-color: #2a2a2a; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px; /* separación entre tarjetas */
+    padding: 25px 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Línea verde lateral */
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #28a745;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+/* Quita el border-bottom que sobraba */
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+
+.job-info {
+    flex: 1;
+    text-align: left;
+    padding-right: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.job-description {
+    flex: 2;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.job-info h3 {
+    font-size: 1.3rem;
+    color: #f0f0f0;
+    margin-bottom: 5px;
+}
+
+.job-info h4 {
+    font-size: 1rem;
+    color: #b0b0b0;
+    margin-bottom: 15px;
+}
+
+.job-info p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #d0d0d0;
+}
+
+.job-description ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.job-description ul li {
+    position: relative;
+    padding-left: 1.5em;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #f0f0f0;
+}
+
+.job-description ul li::before {
+    content: '•';
+    color: #28a745;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    position: absolute;
+    left: 0;
+}
+
+/* ESTILOS PARA LA SECCIÓN DE EDUCACIÓN Y CERTIFICADOS */
+.education-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+}
+
+.education-section h2 {
+    font-size: 2.2rem;
+    color: #f0f0f0; 
+    margin-bottom: 40px;
+}
+
+/* Contenedor de la lista de educación */
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Estilos para cada item de educación */
+.education-item {
+    background-color: #2a2a2a;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-left: 5px solid #28a745;
+}
+
+.education-item h3 {
+    font-size: 1.3rem;
+    color: #f0f0f0;
+    margin-bottom: 5px;
+}
+
+.education-item h4 {
+    font-size: 1rem;
+    color: #b0b0b0;
+    margin-bottom: 15px;
+}
+
+.education-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #d0d0d0;
+}
+
+/* ESTILOS PARA LA SECCIÓN DE TECNOLOGÍAS */
+.technology-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+    scroll-margin-top: 100px;
+}
+
+.technology-section h2 {
+    font-size: 2.2rem;
+    color: #f0f0f0;
+    margin-bottom: 40px;
+}
+
+.tech-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Forzamos 5 columnas por fila */
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tech-item img {
+    height: 4.5rem; /* Hacemos los logos más grandes */
+    width: auto;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.tech-item p {
+    font-size: 1rem;
+    color: #f0f0f0;
+    margin: 0;
+}
+
+/* Estilos para los íconos de Font Awesome */
+.tech-item i {
+    font-size: 3rem;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los logotipos (imágenes) */
+.tech-item img {
+    height: 4rem; /* Hacemos los logos más grandes */
+    width: auto;
+    margin-bottom: 10px;
+    object-fit: contain; /* Ajusta la imagen sin recortar para que no se deforme */
+    
+}
+
+.tech-item p {
+    font-size: 1rem;
+    color: #f0f0f0;
+    margin: 0;
+}
+
+.technology-section h2 {
+    font-size: 2.2rem;
+    color: #f0f0f0;
+    margin-bottom: 40px;
+}
+
+/* Contenedor principal para las tecnologías */
+.tech-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* <-- Forzamos 5 columnas */
+    gap: 40px; /* <-- Aumentamos el espacio */
+    max-width: 1200px; /* <-- Ajustamos el ancho para que quepan 5 */
+    margin: 0 auto;
+}
+
+/* Estilos para cada ícono y su nombre */
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tech-item i {
+    font-size: 3rem;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.tech-item p {
+    font-size: 1rem;
+    color: #f0f0f0;
+    margin: 0;
+}
+
+/* ESTILOS PARA LA SECCIÓN DE PROYECTOS */
+.projects-section {
+    padding: 60px 20px 100px 40px;
+    background-color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 130px;
+}
+
+.projects-section h2 {
+    font-size: 2.2rem;
+    color: #f0f0f0;
+    margin-bottom: 40px;
+}
+
+/* Contenedor de la cuadrícula de proyectos */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Estilos para cada tarjeta de proyecto */
+.project-item {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.project-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.project-item h3 {
+    font-size: 1.5rem;
+    color: #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.project-item p {
+    font-size: 0.9rem;
+    color: #d0d0d0;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-item a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.project-item a:hover {
+    background-color: #218838;
+}
+
+/* ESTILOS PARA LA SECCIÓN DE CONTACTO */
+.contact-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+}
+
+.contact-section h2 {
+    font-size: 2.2rem;
+    color: #f0f0f0;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1rem;
+    color: #d0d0d0;
+    margin-bottom: 40px;
+}
+
+/* Contenedor de los enlaces de contacto */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-info a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #28a745;
+}
+
+.contact-info a i {
+    font-size: 1.5rem;
+    color: #28a745;
+}
+
+/* ESTILOS DEL FOOTER */
+footer {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+    color: #d0d0d0;
+    margin-top: 50px;
+}
+
+footer .social-links a {
+    color: #f0f0f0;
+    font-size: 1.8rem;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+    color: #28a745;
+}
+
+footer p {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* --- Separadores sutiles entre módulos --- */
+.module {
+  padding: 60px 20px;
+  position: relative;
+}
+
+/* línea sutil y centrada antes de cada módulo que sigue a otro módulo */
+.module + .module::before {
+  content: "";
+  display: block;
+  width: 85%;            /* ancho del separador (ajusta) */
+  max-width: 1000px;     /* ancho máximo alineado con tu contenido */
+  height: 1px;
+  margin: 0 auto 22px;   /* centrado y separación inferior */
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0)
+  ); /* degradado suave en extremos */
+}
+
+/* pequeño ajuste de espacio superior para que no quede pegado al separador */
+.module + .module {
+  padding-top: 40px;
+}
+
+/* evitar separador antes del primer módulo o en el footer (opcional) */
+.module:first-of-type::before { display: none; }
+
+/* Contenedor principal para el efecto de margen exterior */
+.main-content-wrapper {
+    max-width: 1200px; /* Ajusta este valor al ancho máximo que desees para tu contenido */
+    width: calc(100% - 32px);
+    margin: 16px auto; /* Esto centrará el contenedor */
+    background-color: #1a1a1a; /* El color de fondo de tus secciones */
+    padding: 12px; /* Un poco de padding si quieres espacio entre el borde y el contenido */
+    /* border-radius: 10px; Si quieres que el contenedor principal tenga bordes redondeados */
+}
+
+:root {
+  --gutter: clamp(12px, 4vw, 32px);
+}
+
+.main-content-wrapper {
+  max-width: 1200px;
+  width: calc(100% - var(--gutter) * 2);
+  margin-inline: auto;
+  margin-block: var(--gutter);
+  background-color: #1a1a1a;
+  border-radius: 12px;
+}
+
+
+/* Asegurarse de que el body tenga el color de margen */
+body {
+    background-color: #0c0c0c; /* ¡Este es el margen negro que queremos! */
+    color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*
+Propiedad que evita que el contenido se oculte detrás del menú fijo.
+Asegura que el scroll se detenga justo debajo de la barra de navegación.
+*/
+.hero-section,
+.about-me-section,
+.experience-section,
+.education-section,
+.technology-section,
+.projects-section,
+.contact-section {
+    scroll-margin-top: 100px; /* Este valor debe ser un poco mayor que la altura de la cabecera */
+}
+
+/* RESPONSIVIDAD: ESTILOS PARA DISPOSITIVOS MÓVILES */
+@media (max-width: 768px) {
+
+    /* Ajustamos el encabezado para que los elementos se apilen */
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    /* Ajustamos el menú de navegación */
+    nav {
+        position: static; /* Quitamos el position: sticky */
+        width: 100%;
+        margin-top: 20px;
+        background-color: transparent; /* Fondo transparente para no tapar contenido */
+    }
+
+    nav ul {
+        flex-direction: column; /* Apilamos los enlaces */
+        text-align: center;
+        gap: 10px;
+    }
+        /* La sección principal, para que la foto y el texto se apilen */
+    .hero-section {
+        flex-direction: column; /* Apilamos los elementos verticalmente */
+        text-align: center; /* Centramos el texto para una mejor lectura */
+    }
+
+    .hero-section div {
+        text-align: center; /* Centramos el texto de la descripción */
+    }
+}
+
+/* ESTILOS PARA LA GALERÍA DE CERTIFICADOS */
+.certificates-gallery {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.certificates-gallery h3 {
+    font-size: 1.8rem;
+    color: #f0f0f0;
+    margin-bottom: 30px;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* ¡Ajustamos esto! */
+    gap: 30px;
+    max-width: 1000px; /* ¡Ajustamos esto para que sea un poco más ancho! */
+    margin: 0 auto;
+}
+
+.certificate-item {
+    background-color: transparent; /* ¡Cambiamos a transparente! */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border: 1px solid #333; /* Agregamos un borde sutil */
+}
+
+.certificate-item img {
+    width: 100%;
+    height: 180px; /* Le damos una altura fija para que todas sean iguales */
+    object-fit: cover; /* Recorta la imagen para que cubra el espacio */
+    border-radius: 8px;
+}
+
+.certificate-item h4 {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #f0f0f0;
+}
+
+/* Estilos para el Modal (Ventana Emergente) */
+.modal {
+    display: none; /* Por defecto, estará oculta */
+    position: fixed;
+    z-index: 1001; /* Asegura que esté por encima de todos los demás elementos */
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9); /* Fondo semitransparente */
+}
+
+/* Contenido del modal (la imagen) */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+}
+
+/* Botón de cierre */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ESTILOS PARA LA SECCIÓN DE HABILIDADES */
+.skills-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+    
+}
+
+.skills-section h2 {
+    font-size: 2.2rem;
+    color: #f0f0f0;
+    margin-bottom: 40px;
+}
+
+.skills-container {
+    display: block; /* Cambiamos a bloque para que los elementos se apilen */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.skill-category {
+    background-color: #2a2a2a;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; /* Agregamos un margen para el espacio entre los ítems */
+}
+
+.skill-category h3 {
+    font-size: 1.5rem;
+    color: #28a745;
+    margin-bottom: 20px;
+    text-align: center; /* Centramos el título */
+}
+
+.skills-list {
+    list-style: none;
+    text-align: center; /* Centramos el texto de la lista */
+    padding: 0;
+}
+
+.skills-list li {
+    font-size: 1rem;
+    color: #f0f0f0;
+    padding: 8px 0;
+    border-bottom: 1px solid #444;
+}
+
+.skills-list li:last-child {
+    border-bottom: none;
+}
+
+/* Corrección para enlaces de anclaje con el menú fijo */
+#skills-section {
+    padding-top: 150px; /* Ajusta este valor si tu menú es más grande */
+}
+
