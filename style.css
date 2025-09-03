@@ -148,7 +148,7 @@ nav a:hover {
     margin-bottom: 40px;
 }
 
-/* Contenedor de la lista de experiencias */
+
 /* Contenedor de la lista de experiencias */
 .experience-list {
     display: flex;
@@ -316,7 +316,10 @@ nav a:hover {
 
 .tech-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Forzamos 5 columnas por fila */
+    /* Esto es lo que va a arreglarlo: */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    /* El valor "100px" es el ancho mínimo que cada logo tendrá.
+       Puedes ajustarlo si lo ves muy pequeño o muy grande. */
     gap: 30px;
     max-width: 1000px;
     margin: 0 auto;
@@ -617,6 +620,26 @@ Asegura que el scroll se detenga justo debajo de la barra de navegación.
 
 /* RESPONSIVIDAD: ESTILOS PARA DISPOSITIVOS MÓVILES */
 @media (max-width: 768px) {
+
+       .experience-item {
+        flex-direction: column; /* Apila los elementos en una columna */
+        align-items: center; /* Centra los elementos apilados */
+        text-align: center; /* Centra el texto */
+    }
+
+    .job-info, .job-description {
+        width: 100%; /* Ocupan todo el ancho disponible */
+        padding-right: 0; /* Elimina el padding derecho para que no haya espacios extra */
+    }
+
+    .job-info h3, .job-info h4, .job-info p {
+        text-align: center; /* Centra el texto de los títulos y párrafos */
+    }
+
+    .job-description ul {
+        text-align: left; /* Mantiene la lista de puntos a la izquierda */
+        padding-left: 20px; /* Añade un poco de sangría a la lista */
+    }
 
     /* Ajustamos el encabezado para que los elementos se apilen */
     header {
