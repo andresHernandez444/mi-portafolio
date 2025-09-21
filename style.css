@@ -19,12 +19,12 @@ body {
     min-height: 100vh;
 }
 
-/* ESTILOS DEL ENCABEZADO Y NAVEGACIÓN */
+
 /* ESTILOS DE LA CABECERA Y NAVEGACIÓN FIJA */
 header {
     background-color: #0c0c0c;
     color: #f0f0f0;
-    padding: 20px 50px; /* Ajustamos el padding horizontal */
+    padding: 15px 20px; /* Ajustamos el padding horizontal */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,11 +35,21 @@ header {
     z-index: 1000;
 }
 
-/* Estilos de los títulos dentro de la cabecera */
+/* tus títulos en columna */
 .header-titles {
     display: flex;
     flex-direction: column;
+    align-items: flex-start; /* 🔹 alinea los textos a la izquierda */
+    text-align: left !important; /* pisa cualquier centrado heredado */
 }
+
+.header-titles h1, 
+.header-titles h2 {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
 
 /* Estilos del menú de navegación */
 nav {
@@ -307,134 +317,84 @@ nav a:hover {
     background-color: #1a1a1a;
     scroll-margin-top: 100px;
     max-width: 100%;   /* 🔹 evita que se pase del viewport */
-    overflow: hidden;  /* 🔹 asegura que nada se desborde */
+    
 }
 
-/* Desktop */
+/* === Tecnologías === */
+
+/* Sección de tecnologías escritorio */
 .tech-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 🔹 5 columnas fijas en desktop */
-    gap: 30px;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 15px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columnas en desktop */
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Ítems */
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .tech-item img {
-    width: 80%;
-    max-width: 120px;
-    height: auto;
-    margin-bottom: 12px;
-    object-fit: contain;
+  height: 4rem;
+  width: auto;
+  margin-bottom: 10px;
+  object-fit: contain;
 }
-
-/* Texto */
-.tech-item p {
-    font-size: 1rem;
-    color: #f0f0f0;
-    margin: 0;
-}
-
-/* Móviles */
-@media (max-width: 600px) {
-    .tech-container {
-        grid-template-columns: repeat(2, 1fr); /* 🔹 2 columnas en móviles */
-        gap: 25px;
-    }
-
-    .tech-item img {
-        width: 90%;
-        max-width: 140px; /* un poco más grandes en móviles */
-    }
-
-    .tech-item p {
-        font-size: 1.1rem;
-    }
-}
-
-
-
-/* Celulares */
-@media (max-width: 600px) {
-    .tech-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 por fila */
-        gap: 25px;
-    }
-
-    .tech-item img {
-        width: 90%;       /* más grandes en móvil */
-        max-width: 100px; /* pero con límite */
-    }
-    
-}
-
-
-
-
 
 .tech-item p {
-    font-size: 1rem;
-    color: #f0f0f0;
-    margin: 0;
+  font-size: 1rem;
+  color: #f0f0f0;
+  margin: 0;
 }
-/* Estilos para los íconos de Font Awesome */
+
 .tech-item i {
-    font-size: 3rem;
-    color: #28a745;
-    margin-bottom: 10px;
-}
-
-/* Estilos para los logotipos (imágenes) */
-.tech-item img {
-    height: 4rem; /* Hacemos los logos más grandes */
-    width: auto;
-    margin-bottom: 10px;
-    object-fit: contain; /* Ajusta la imagen sin recortar para que no se deforme */
-    
-}
-
-.tech-item p {
-    font-size: 1rem;
-    color: #f0f0f0;
-    margin: 0;
+  font-size: 3rem;
+  color: #28a745;
+  margin-bottom: 10px;
 }
 
 .technology-section h2 {
-    font-size: 2.2rem;
-    color: #f0f0f0;
-    margin-bottom: 40px;
+  font-size: 2.2rem;
+  color: #f0f0f0;
+  margin-bottom: 40px;
 }
 
-/* Contenedor principal para las tecnologías */
-.tech-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* <-- Forzamos 5 columnas */
-    gap: 40px; /* <-- Aumentamos el espacio */
-    max-width: 1200px; /* <-- Ajustamos el ancho para que quepan 5 */
-    margin: 0 auto;
+/* === Responsive === */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .tech-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablet */
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .tech-item img {
+    max-width: 80px;
+  }
 }
 
-/* Estilos para cada ícono y su nombre */
-.tech-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+/* Móviles */
+@media (max-width: 480px) {
+  .tech-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .tech-item img {
+    max-width: 70px;
+  }
+
+  .tech-item p {
+    font-size: 0.9rem;
+  }
 }
 
-.tech-item i {
-    font-size: 3rem;
-    color: #28a745;
-    margin-bottom: 10px;
-}
-
-.tech-item p {
-    font-size: 1rem;
-    color: #f0f0f0;
-    margin: 0;
-}
 
 /* ESTILOS PARA LA SECCIÓN DE PROYECTOS */
 .projects-section {
@@ -676,11 +636,12 @@ Asegura que el scroll se detenga justo debajo de la barra de navegación.
     }
 
     /* Ajustamos el encabezado para que los elementos se apilen */
-    header {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
+header {
+    flex-direction: row;          /* Mantiene la dirección horizontal por defecto */
+    justify-content: flex-start;  /* Alinea el contenido (los títulos) a la izquierda */
+    align-items: center;          /* Mantiene los títulos centrados verticalmente */
+    padding: 20px 30px;                /* Un poco de espacio alrededor */
+}
 
     /* Ajustamos el menú de navegación */
     nav {
@@ -852,38 +813,44 @@ Asegura que el scroll se detenga justo debajo de la barra de navegación.
     display: none;
 }
 
-/* ESTILOS PARA LA CABECERA EN MÓVILES */
+ /* ESTILOS PARA LA CABECERA EN MÓVILES */
 @media (max-width: 768px) {
-    /* Mostrar el botón de hamburguesa */
-    .menu-toggle {
-        display: block; /* Hacemos visible el botón en móviles */
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 1.5rem; /* Ajusta el tamaño del ícono */
-        color: #f0f0f0;
-        z-index: 1001; /* Asegura que el botón esté por encima de otros elementos */
-        position: absolute; /* Para posicionarlo libremente */
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
+    /* Estilos del menú de navegación */
+    nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%; 
+        height: 100%;
+        background-color: #1a1a1a;
+        box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 60px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
     }
 
-    /* Ocultar el menú de navegación por defecto en móviles */
-    nav {
-        display: none; /* Ocultamos el menú completo */
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #1a1a1a; /* Un fondo para que se distinga */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+    header {
+    text-align: left !important; /* pisa cualquier centrado heredado */
+    display: flex;
+    justify-content: space-between; /* 🔹 separa títulos y menú */
+    align-items: center;            /* 🔹 centra verticalmente */
+    padding: 15px 20px;
+}
+
     
+    /* Mostrar el menú cuando tiene la clase "active" */
+    nav.active {
+        display: flex;
+        transform: translateX(0);
+    }
+
     nav ul {
         flex-direction: column;
-        gap: 0; /* Quitamos el espacio entre los ítems de la lista */
+        gap: 0;
     }
 
     nav ul li {
@@ -894,26 +861,41 @@ Asegura que el scroll se detenga justo debajo de la barra de navegación.
     nav ul li a {
         display: block;
         padding: 15px 20px;
-        border-bottom: 1px solid #333; /* Un separador sutil */
+        border-bottom: 1px solid #333;
     }
 
     nav ul li:last-child a {
         border-bottom: none;
     }
-    
-    /* El menú se mostrará con JavaScript, por ahora lo ocultamos */
-    .header-titles {
-        flex-grow: 1; /* Esto empujará el menú hacia el borde derecho si es un flex */
+
+    /* Ajustar la posición del botón de hamburguesa */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: #f0f0f0;
+        z-index: 1002;
+        position: fixed;
+        top: 20px;
+        right: 20px;
     }
 
-    /* Mostrar el menú cuando tiene la clase "active" */
-    nav.active {
-        display: flex; /* Cambia a flexbox para que se muestre */
-    }
+    /* Asegurar que los títulos estén a la izquierda */
+.header-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 🔹 pega los textos a la izquierda */
+    text-align: left;
+    flex: 1; /* 🔹 ocupa todo el espacio disponible a la izquierda */
 }
-/* Asegura que el menú esté oculto en móviles por defecto */
-@media (max-width: 768px) {
-    nav {
-        display: none !important;
-    }
+
+.header-titles h1,
+.header-titles h2 {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
 }
