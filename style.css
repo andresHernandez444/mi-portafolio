@@ -310,10 +310,10 @@ nav a:hover {
     overflow: hidden;  /* 🔹 asegura que nada se desborde */
 }
 
-/* Desktop (5 columnas fijas) */
+/* Desktop */
 .tech-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 🔹 5 columnas en desktop */
+    grid-template-columns: repeat(5, 1fr); /* 🔹 5 columnas fijas en desktop */
     gap: 30px;
     max-width: 1200px;
     width: 100%;
@@ -330,23 +330,29 @@ nav a:hover {
     object-fit: contain;
 }
 
-/* Móviles (FORZAR 2 columnas) */
-@media screen and (max-width: 768px) {
+/* Texto */
+.tech-item p {
+    font-size: 1rem;
+    color: #f0f0f0;
+    margin: 0;
+}
+
+/* Móviles */
+@media (max-width: 600px) {
     .tech-container {
-        grid-template-columns: repeat(2, 1fr) !important; /* 🔹 forzamos 2 columnas */
+        grid-template-columns: repeat(2, 1fr); /* 🔹 2 columnas en móviles */
         gap: 25px;
     }
 
     .tech-item img {
         width: 90%;
-        max-width: 140px;
+        max-width: 140px; /* un poco más grandes en móviles */
     }
 
     .tech-item p {
         font-size: 1.1rem;
     }
 }
-
 
 
 
@@ -361,6 +367,7 @@ nav a:hover {
         width: 90%;       /* más grandes en móvil */
         max-width: 100px; /* pero con límite */
     }
+    
 }
 
 
@@ -840,3 +847,67 @@ Asegura que el scroll se detenga justo debajo de la barra de navegación.
     padding-top: 150px; /* Ajusta este valor si tu menú es más grande */
 }
 
+/* OCULTAR MENÚ DE HAMBURGUESA POR DEFECTO */
+.menu-toggle {
+    display: none;
+}
+
+/* ESTILOS PARA LA CABECERA EN MÓVILES */
+@media (max-width: 768px) {
+    /* Mostrar el botón de hamburguesa */
+    .menu-toggle {
+        display: block; /* Hacemos visible el botón en móviles */
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem; /* Ajusta el tamaño del ícono */
+        color: #f0f0f0;
+        z-index: 1001; /* Asegura que el botón esté por encima de otros elementos */
+        position: absolute; /* Para posicionarlo libremente */
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Ocultar el menú de navegación por defecto en móviles */
+    nav {
+        display: none; /* Ocultamos el menú completo */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #1a1a1a; /* Un fondo para que se distinga */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0; /* Quitamos el espacio entre los ítems de la lista */
+    }
+
+    nav ul li {
+        text-align: center;
+        width: 100%;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid #333; /* Un separador sutil */
+    }
+
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+    
+    /* El menú se mostrará con JavaScript, por ahora lo ocultamos */
+    .header-titles {
+        flex-grow: 1; /* Esto empujará el menú hacia el borde derecho si es un flex */
+    }
+
+    /* Mostrar el menú cuando tiene la clase "active" */
+    nav.active {
+        display: flex; /* Cambia a flexbox para que se muestre */
+    }
+}
