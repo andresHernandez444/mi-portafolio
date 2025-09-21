@@ -911,3 +911,9 @@ Asegura que el scroll se detenga justo debajo de la barra de navegación.
         display: flex; /* Cambia a flexbox para que se muestre */
     }
 }
+/* Asegura que el menú esté oculto en móviles por defecto */
+@media (max-width: 768px) {
+    nav {
+        display: none !important;
+    }
+}
