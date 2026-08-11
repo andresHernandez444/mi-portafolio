@@ -19,12 +19,12 @@ body {
     min-height: 100vh;
 }
 
-/* ESTILOS DEL ENCABEZADO Y NAVEGACIÓN */
+
 /* ESTILOS DE LA CABECERA Y NAVEGACIÓN FIJA */
 header {
     background-color: #0c0c0c;
     color: #f0f0f0;
-    padding: 20px 50px; /* Ajustamos el padding horizontal */
+    padding: 15px 20px; /* Ajustamos el padding horizontal */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,11 +35,21 @@ header {
     z-index: 1000;
 }
 
-/* Estilos de los títulos dentro de la cabecera */
+/* tus títulos en columna */
 .header-titles {
     display: flex;
     flex-direction: column;
+    align-items: flex-start; /* 🔹 alinea los textos a la izquierda */
+    text-align: left !important; /* pisa cualquier centrado heredado */
 }
+
+.header-titles h1, 
+.header-titles h2 {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
 
 /* Estilos del menú de navegación */
 nav {
@@ -148,7 +158,7 @@ nav a:hover {
     margin-bottom: 40px;
 }
 
-/* Contenedor de la lista de experiencias */
+
 /* Contenedor de la lista de experiencias */
 .experience-list {
     display: flex;
@@ -300,104 +310,91 @@ nav a:hover {
     color: #d0d0d0;
 }
 
-/* ESTILOS PARA LA SECCIÓN DE TECNOLOGÍAS */
+/* Sección completa */
 .technology-section {
     padding: 60px 20px;
     text-align: center;
     background-color: #1a1a1a;
     scroll-margin-top: 100px;
-}
-
-.technology-section h2 {
-    font-size: 2.2rem;
-    color: #f0f0f0;
-    margin-bottom: 40px;
-}
-
-.tech-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Forzamos 5 columnas por fila */
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.tech-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.tech-item img {
-    height: 4.5rem; /* Hacemos los logos más grandes */
-    width: auto;
-    margin-bottom: 10px;
-    object-fit: contain;
-}
-
-.tech-item p {
-    font-size: 1rem;
-    color: #f0f0f0;
-    margin: 0;
-}
-
-/* Estilos para los íconos de Font Awesome */
-.tech-item i {
-    font-size: 3rem;
-    color: #28a745;
-    margin-bottom: 10px;
-}
-
-/* Estilos para los logotipos (imágenes) */
-.tech-item img {
-    height: 4rem; /* Hacemos los logos más grandes */
-    width: auto;
-    margin-bottom: 10px;
-    object-fit: contain; /* Ajusta la imagen sin recortar para que no se deforme */
+    max-width: 100%;   /* 🔹 evita que se pase del viewport */
     
 }
 
-.tech-item p {
-    font-size: 1rem;
-    color: #f0f0f0;
-    margin: 0;
-}
+/* === Tecnologías === */
 
-.technology-section h2 {
-    font-size: 2.2rem;
-    color: #f0f0f0;
-    margin-bottom: 40px;
-}
-
-/* Contenedor principal para las tecnologías */
+/* Sección de tecnologías escritorio */
 .tech-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* <-- Forzamos 5 columnas */
-    gap: 40px; /* <-- Aumentamos el espacio */
-    max-width: 1200px; /* <-- Ajustamos el ancho para que quepan 5 */
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columnas en desktop */
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Estilos para cada ícono y su nombre */
 .tech-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-item img {
+  height: 4rem;
+  width: auto;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+.tech-item p {
+  font-size: 1rem;
+  color: #f0f0f0;
+  margin: 0;
 }
 
 .tech-item i {
-    font-size: 3rem;
-    color: #28a745;
-    margin-bottom: 10px;
+  font-size: 4rem;
+  color: #28a745;
+  margin-bottom: 10px;
 }
 
-.tech-item p {
-    font-size: 1rem;
-    color: #f0f0f0;
-    margin: 0;
+.technology-section h2 {
+  font-size: 2.2rem;
+  color: #f0f0f0;
+  margin-bottom: 40px;
 }
+
+/* === Responsive === */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .tech-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablet */
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .tech-item img {
+    max-width: 80px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .tech-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .tech-item img {
+    max-width: 70px;
+  }
+
+  .tech-item p {
+    font-size: 0.9rem;
+  }
+}
+
 
 /* ESTILOS PARA LA SECCIÓN DE PROYECTOS */
 .projects-section {
@@ -618,12 +615,33 @@ Asegura que el scroll se detenga justo debajo de la barra de navegación.
 /* RESPONSIVIDAD: ESTILOS PARA DISPOSITIVOS MÓVILES */
 @media (max-width: 768px) {
 
-    /* Ajustamos el encabezado para que los elementos se apilen */
-    header {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
+       .experience-item {
+        flex-direction: column; /* Apila los elementos en una columna */
+        align-items: center; /* Centra los elementos apilados */
+        text-align: center; /* Centra el texto */
     }
+
+    .job-info, .job-description {
+        width: 100%; /* Ocupan todo el ancho disponible */
+        padding-right: 0; /* Elimina el padding derecho para que no haya espacios extra */
+    }
+
+    .job-info h3, .job-info h4, .job-info p {
+        text-align: center; /* Centra el texto de los títulos y párrafos */
+    }
+
+    .job-description ul {
+        text-align: left; /* Mantiene la lista de puntos a la izquierda */
+        padding-left: 20px; /* Añade un poco de sangría a la lista */
+    }
+
+    /* Ajustamos el encabezado para que los elementos se apilen */
+header {
+    flex-direction: row;          /* Mantiene la dirección horizontal por defecto */
+    justify-content: flex-start;  /* Alinea el contenido (los títulos) a la izquierda */
+    align-items: center;          /* Mantiene los títulos centrados verticalmente */
+    padding: 20px 30px;                /* Un poco de espacio alrededor */
+}
 
     /* Ajustamos el menú de navegación */
     nav {
@@ -790,3 +808,145 @@ Asegura que el scroll se detenga justo debajo de la barra de navegación.
     padding-top: 150px; /* Ajusta este valor si tu menú es más grande */
 }
 
+/* OCULTAR MENÚ DE HAMBURGUESA POR DEFECTO */
+.menu-toggle {
+    display: none;
+}
+
+ /* ESTILOS PARA LA CABECERA EN MÓVILES */
+@media (max-width: 768px) {
+    /* Estilos del menú de navegación */
+    nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%; 
+        height: 100%;
+        background-color: #1a1a1a;
+        box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 60px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    header {
+    text-align: left !important; /* pisa cualquier centrado heredado */
+    display: flex;
+    justify-content: space-between; /* 🔹 separa títulos y menú */
+    align-items: center;            /* 🔹 centra verticalmente */
+    padding: 15px 20px;
+}
+
+    
+    /* Mostrar el menú cuando tiene la clase "active" */
+    nav.active {
+        display: flex;
+        transform: translateX(0);
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    nav ul li {
+        text-align: center;
+        width: 100%;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid #333;
+    }
+
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Ajustar la posición del botón de hamburguesa */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: #f0f0f0;
+        z-index: 1002;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
+
+    /* Asegurar que los títulos estén a la izquierda */
+.header-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 🔹 pega los textos a la izquierda */
+    text-align: left;
+    flex: 1; /* 🔹 ocupa todo el espacio disponible a la izquierda */
+}
+
+.header-titles h1,
+.header-titles h2 {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+}
+
+/* Agrupación vertical dentro de la tarjeta */
+.company-card {
+    display: flex;
+    flex-direction: column !important;
+    gap: 2.5rem;
+}
+
+.role-row {
+    display: flex;
+    width: 100%;
+    gap: inherit;
+}
+
+/* Columna izquierda con espacio para la línea de tiempo */
+.job-info.timeline-item {
+    position: relative;
+    padding-left: 1.5rem; /* Margen interno para acomodar el nodo y la línea */
+}
+
+/* Punto / Nodo de ascenso */
+.timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 0.35rem;
+    width: 10px;
+    height: 10px;
+    background-color: #2ecc71; /* Color verde/resaltado de tu tema */
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* Línea vertical conectora estilo LinkedIn entre cargos */
+.role-row:not(:last-child) .job-info.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 4px; /* Alineado al centro del punto de 10px */
+    top: 0.8rem;
+    bottom: -3rem; /* Conecta con el nodo del siguiente cargo */
+    width: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+}
+
+.edu-note {
+    display: block;
+    font-size: 0.85rem;
+    color: #888888; /* Color gris tenue */
+    margin-top: 0.3rem;
+    font-style: italic;
+}
