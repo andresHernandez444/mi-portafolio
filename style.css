@@ -635,6 +635,16 @@ Asegura que el scroll se detenga justo debajo de la barra de navegación.
         padding-left: 20px; /* Añade un poco de sangría a la lista */
     }
 
+    .role-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .job-info, 
+    .job-description {
+        width: 100%;
+    }
+
     /* Ajustamos el encabezado para que los elementos se apilen */
 header {
     flex-direction: row;          /* Mantiene la dirección horizontal por defecto */
@@ -949,4 +959,10 @@ header {
     color: #888888; /* Color gris tenue */
     margin-top: 0.3rem;
     font-style: italic;
+}
+
+.tu-clase-tarjeta {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
 }
